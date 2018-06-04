@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server  --open --watch",
+    "start": "webpack-dev-server --hot --open --watch",
     "build": "webpack --config webpack.production.js"
   },
   "author": "",
