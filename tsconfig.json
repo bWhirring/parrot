@@ -9,6 +9,7 @@
     "outDir": "./bin",
     "sourceMap": false,
     "module": "commonjs",
+    "declaration": true,
     "moduleResolution": "node",
     "isolatedModules": false,
     "jsx": "react",
