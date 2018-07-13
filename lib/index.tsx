@@ -1,17 +1,15 @@
 #!/usr/bin/env node
 import * as commander from "commander";
 import * as fs from 'fs'
-import { exec, execSync } from "child_process";
-import * as ncp from 'ncp';
+import { execSync } from "child_process";
 import * as colors from 'colors'
 import * as path from 'path'
 const version = require("../package.json").version;
 import {
   setProjectName,
-  setFileName,
   mode,
+  type,
   compareVersion,
-  createViewsDir,
 } from './util'
 import {
   dir,
@@ -35,8 +33,8 @@ commander
 commander.on('--help', function(){
     console.log('\n Examples:');
     console.log('');
-    console.log('  $ parrot -h');
-    console.log('  $ parrot init parrot-demo ');
+    console.log('  $ snake -h');
+    console.log('  $ snake init snake-demo ');
     console.log('');
   });
 
@@ -49,7 +47,7 @@ help()
 const release = async() => {
   const nodeVersion = execSync("node -v", { encoding: "utf8" });
   if (process.argv.length === 2) {
-    execSync('parrot -h')
+    execSync('snake -h')
   }
   if (!compareVersion(nodeVersion)) {
     console.log('Please make sure the node version is above 8.0'.red);
@@ -70,10 +68,9 @@ const release = async() => {
     projectName = projectName || global['projectName'];
     fs.mkdirSync(projectName);
     const currentPath = path.resolve(__dirname, '..')
-    const directory = reactMode.flag ? currentPath + '/src/react-router' : currentPath + '/src/redux'
+    const directory =  currentPath + type(reactMode.flag);
     dir(directory, projectName)
   } else if (argv2 === 'view') {
-    let viewName = argv3;
     viewTemplate(argv3)
   }
 }

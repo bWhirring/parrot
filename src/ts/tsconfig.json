@@ -3,19 +3,22 @@
   "compilerOptions": {
     "target": "es5",
     "lib": [
-      "es2015"
+      "es6", "dom"
     ],
-    "outDir": "./bin",
+    "types": [
+      "node"
+    ],
+    "outDir": "./dist",
     "sourceMap": true,
     "module": "commonjs",
+    "watch": true,
     "moduleResolution": "node",
     "isolatedModules": false,
+    "experimentalDecorators": true,
     "declaration": true,
-    "jsx": "react",
-    "watch": true,
     "suppressImplicitAnyIndexErrors": true
   },
   "include": [
-    "./lib/**/*",
+    "./src/**/*",
   ]
 }
