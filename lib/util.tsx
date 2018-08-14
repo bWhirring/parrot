@@ -61,6 +61,10 @@ export async function mode() {
         value: "redux"
       },
       {
+        name: "react + react-router + redux + antd",
+        value: "antd"
+      },
+      {
         name: "typescript",
         value: "ts"
       },
@@ -71,7 +75,7 @@ export async function mode() {
       {
         name: "express+inversify",
         value: "express"
-      }
+      },
     ]
   });
 }
@@ -86,7 +90,8 @@ export function type(mode: string) {
     redux: "/src/redux",
     ts: "/src/ts",
     "ts-react": "/src/ts-react",
-    express: "/src/express-demo"
+    express: "/src/express-demo",
+    antd: "/src/redux-antd",
   }[mode];
 }
 

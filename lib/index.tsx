@@ -45,11 +45,11 @@ function help () {
 help()
 
 const release = async() => {
-  const nodeVersion = execSync("node -v", { encoding: "utf8" });
+  //const nodeVersion = execSync("node -v", { encoding: "utf8" });
   if (process.argv.length === 2) {
     execSync('parrot -h')
   }
-  if (!compareVersion(nodeVersion)) {
+  if (!compareVersion(process.version)) {
     console.log('Please make sure the node version is above 8.0'.red);
     process.exit();
   }
