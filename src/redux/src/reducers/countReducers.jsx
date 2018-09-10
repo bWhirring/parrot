@@ -1,11 +1,11 @@
-const data = 1
+const data = 1;
 
 export function count(state = data, action) {
   switch (action.type) {
-    case 'ADD':
-      return data + action.data
+    case "ADD":
+      return data + action.data;
       break;
-    case 'REDUCE':
+    case "REDUCE":
       return action.data - data;
       break;
     default:

@@ -3,70 +3,67 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ManifestPlugin = require("webpack-manifest-plugin");
 const {
-  publicPath,
-  filename,
-  template,
-  favicon
+  publicPath, filename, template, favicon,
 } = require("./package.json").config;
 
 module.exports = {
   mode: "production",
-  entry: "./src/index.js",
+  entry: "./src/index.jsx",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.[hash].js",
-    publicPath
+    publicPath,
   },
   resolve: {
-    extensions: [".js", ".jsx", ".js", ".json"]
+    extensions: [".js", ".jsx", ".js", ".json"],
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)/,
-        loader: "babel-loader"
+        loader: "babel-loader",
       },
       {
         test: /\.less$/,
         include: path.resolve(__dirname, "./node_modules"),
-        loader: "style-loader!css-loader!less-loader?javascriptEnabled=true"
+        loader: "style-loader!css-loader!less-loader?javascriptEnabled=true",
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
           {
             loader: "file-loader",
-            options: {}
-          }
-        ]
+            options: {},
+          },
+        ],
       },
       {
         test: /\.less$/,
         exclude: path.resolve(__dirname, "./node_modules"),
         use: [
           {
-            loader: "style-loader" // creates style nodes from JS strings
+            loader: "style-loader", // creates style nodes from JS strings
           },
           {
             loader: "css-loader", // translates CSS into CommonJS
             options: {
               modules: true,
               importLoaders: 1,
-              localIdentName: "[name]__[local]___[hash:base64:5]"
-            }
+              localIdentName: "[name]__[local]___[hash:base64:5]",
+            },
           },
           {
             loader: "less-loader", // compiles Less to CSS
             options: {
-              javascriptEnabled: true
-            }
+              javascriptEnabled: true,
+            },
           },
           {
-            loader: "postcss-loader"
-          }
-        ]
-      }
-    ]
+            loader: "postcss-loader",
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(["dist"]),
@@ -74,7 +71,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename,
       template,
-      favicon
-    })
-  ]
+      favicon,
+    }),
+  ],
 };

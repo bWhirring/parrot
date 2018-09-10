@@ -1,9 +1,9 @@
-import React from 'react'
-import CSSModules from 'react-css-modules'
-import { Route, BrowserRouter as Router, Switch, HashRouter, Link } from 'react-router-dom';
+import React from "react";
+import CSSModules from "react-css-modules";
+import { Route, Switch, HashRouter, Link } from "react-router-dom";
 
-import { router } from './routers'
-import style from './App.less'
+import { router } from "./routers";
+import style from "./App.less";
 @CSSModules(style)
 export default class App extends React.PureComponent {
   render() {
@@ -11,9 +11,15 @@ export default class App extends React.PureComponent {
       <HashRouter>
         <div>
           <ul>
-            <li><Link to="/">home</Link></li>
-            <li><Link to="/login">login</Link></li>
-            <li><Link to="/count">count</Link></li>
+            <li>
+              <Link to="/">home</Link>
+            </li>
+            <li>
+              <Link to="/login">login</Link>
+            </li>
+            <li>
+              <Link to="/count">count</Link>
+            </li>
           </ul>
           <Switch>
             {router.map((route, index) => (
@@ -27,6 +33,6 @@ export default class App extends React.PureComponent {
           </Switch>
         </div>
       </HashRouter>
-    )
+    );
   }
 }

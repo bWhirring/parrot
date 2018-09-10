@@ -1,6 +1,6 @@
 {
   "name": "@dwd/parrot",
-  "version": "0.2.4",
+  "version": "0.2.6",
   "description": "a tool for generation front project, includes react、typescript、express+inversify",
   "main": "bin/index.js",
   "bin": {
