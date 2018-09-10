@@ -50,10 +50,7 @@
     "publicPath": "https://assets.dianwoda.cn/",
     "template": "public/index.html",
     "favicon": "public/favicon.ico",
-    "filename": "index.html",
-    "commitizen": {
-      "path": "cz-customizable"
-    }
+    "filename": "index.html"
   },
   "license": "MIT",
   "engines": {
