@@ -1,0 +1,7 @@
+{
+  "LOCAL": {
+    "PORT": 9999,
+    "HOST": "http://localhost:9999",
+    "CAS": "http://192.168.11.20:18580"
+  }
+}
