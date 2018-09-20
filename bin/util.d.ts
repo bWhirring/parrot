@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * if hasn't projectName ,set one
  */

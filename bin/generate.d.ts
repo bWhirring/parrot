@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * generation directory
  * @param dir directory

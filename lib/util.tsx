@@ -76,6 +76,10 @@ export async function mode() {
         name: "express+inversify",
         value: "express"
       },
+      {
+        name: "express + react",
+        value: "expressreact"
+      }
     ]
   });
 }
@@ -92,6 +96,7 @@ export function type(mode: string) {
     "ts-react": "/src/ts-react",
     express: "/src/express-demo",
     antd: "/src/redux-antd",
+    expressreact: "/src/express-react"
   }[mode];
 }
 
