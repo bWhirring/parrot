@@ -32,5 +32,5 @@ parrot view Test
 
 ### TODOLIST
 
-- [x] webpack 优化整合(webpack script)
-- [x] 可视化
+- [] webpack 优化整合(webpack script)
+- [] 可视化
