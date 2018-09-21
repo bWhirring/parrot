@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --hot --port=9999 --open --watch",
     "build": "webpack --config webpack.production.js",
-    "tsc": "node_modules/.bin/tsc"
+    "tsc": "node_modules/.bin/tsc",
+    "server": "node src/dist/index.js"
   },
   "author": "huhu",
   "license": "ISC",
