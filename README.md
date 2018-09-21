@@ -1,9 +1,9 @@
-
 ## parrot
 
 `a tool for generation webpack project`
 
 install
+
 ```
 npm install -g @dwd/parrot
 ```
@@ -16,7 +16,7 @@ parrot init <project>
 
 API
 
-init  `<project>`
+init `<project>`
 
 ```
 parrot init parrot-demo
@@ -30,4 +30,7 @@ generate a react component at src/views, if hasn't views directory, it will crea
 parrot view Test
 ```
 
+### TODOLIST
 
+- [x] webpack 优化整合(webpack script)
+- [x] 可视化
