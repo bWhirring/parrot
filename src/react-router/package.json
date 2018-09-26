@@ -19,7 +19,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.11",
-    "eslint": "^5.5.0",
+    "eslint": "^4.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
@@ -52,8 +52,5 @@
     "favicon": "public/favicon.ico",
     "filename": "index.html"
   },
-  "license": "MIT",
-  "engines": {
-    "node": "^6.14.0 || ^8.10.0 || >=9.10.0"
-  }
+  "license": "MIT"
 }
