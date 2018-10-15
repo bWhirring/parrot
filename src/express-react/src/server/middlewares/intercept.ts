@@ -12,7 +12,6 @@ export async function intercept(
   } else if (staff) {
     next();
   } else {
-    console.log(121);
     response.redirect("/auth/login");
   }
 }

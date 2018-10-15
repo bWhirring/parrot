@@ -4,6 +4,7 @@ import {
   Route, BrowserRouter, Switch, Link,
 } from "react-router-dom";
 import { Layout, Menu, Icon } from "antd";
+import { logout } from "./apis/index";
 
 import { router } from "./routers";
 import style from "./App.less";
@@ -17,6 +18,11 @@ export default class App extends React.PureComponent {
   async componentDidMount() {
     // code split
   }
+
+  logsout = async () => {
+    const { url } = await logout();
+    window.location.href = url;
+  };
 
   render() {
     return (
@@ -45,7 +51,14 @@ export default class App extends React.PureComponent {
             </Menu>
           </Sider>
           <Layout>
-            <Header style={{ background: "#fff", padding: 0 }} />
+            <Header style={{ background: "#fff", padding: "0 20", textAlign: "right" }}>
+              {window.__data && window.__data.staff}
+              &nbsp;
+              <Icon type="user" theme="outlined" />
+              <a style={{ color: "#fe751a", marginLeft: 40 }} onClick={this.logsout}>
+                注销
+              </a>
+            </Header>
             <Content style={{ margin: "0 16px", padding: 24 }}>
               <span styleName="test">1212</span>
               <Switch>

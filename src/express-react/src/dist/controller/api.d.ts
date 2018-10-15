@@ -1,7 +1,8 @@
+import * as express from "express";
 import { UserService } from "../service/index";
 export declare class UserController {
     private userService;
     constructor(userService: UserService);
-    getUsers(): string;
     getName(): string;
+    logout(req: express.Request, res: express.Response): any;
 }

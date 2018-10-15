@@ -2,14 +2,12 @@ const path = require("path");
 const mode = process.env.NODE_NEV || "development";
 module.exports = {
   mode,
-  entry: "./src/index.tsx",
+  entry: path.resolve(__dirname, "../src/index"),
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "../dist"),
     filename: "bundle.js",
     publicPath: "dist"
   },
-  devtool: "source-map",
-
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
     extensions: [".ts", ".tsx", ".js", ".json"]
@@ -24,7 +22,7 @@ module.exports = {
       { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
       {
         test: /\.less$/,
-        include: path.resolve(__dirname, "./node_modules"),
+        include: path.resolve(__dirname, "../node_modules"),
         loader: "style-loader!css-loader!less-loader?javascriptEnabled=true"
       },
       {
@@ -38,7 +36,7 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        exclude: path.resolve(__dirname, "./node_modules"),
+        exclude: path.resolve(__dirname, "../node_modules"),
         use: [
           {
             loader: "style-loader" // creates style nodes from JS strings
@@ -60,9 +58,10 @@ module.exports = {
           {
             loader: "postcss-loader",
             options: {
-              config: {
-                path: "postcss.config.js"
-              }
+              // 如果没有options这个选项将会报错 No PostCSS Config found
+              plugins: () => [
+                require("autoprefixer")() // CSS浏览器兼容
+              ]
             }
           }
         ]

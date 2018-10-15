@@ -4,8 +4,9 @@
   "description": "typescript react demo",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --watch --history-api-fallback",
-    "build": "webpack --config webpack.production.js"
+    "start": "webpack-dev-server --config webpack/dev.js --hot --open --watch",
+    "build": "webpack --config webpack/production.js",
+    "upload": "node upload.js"
   },
   "keywords": [
     "typescript",
@@ -25,9 +26,11 @@
     "typescript": "^2.9.2"
   },
   "devDependencies": {
+    "@dwd/webpack-mainfest": "^0.0.6",
     "@types/react-css-modules": "^4.6.1",
+    "ali-oss": "^6.0.1",
     "autoprefixer": "^8.6.3",
-    "clean-webpack-plugin": "^0.1.19",
+    "co": "^4.6.0",
     "css-loader": "^0.28.11",
     "file-loader": "^1.1.11",
     "less-loader": "^4.1.0",
@@ -39,6 +42,6 @@
     "webpack": "^4.12.1",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4",
-    "webpack-manifest-plugin": "^2.0.3"
+    "webpack-merge": "^4.1.4"
   }
 }

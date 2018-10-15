@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --open --watch",
-    "build": "webpack --config webpack.production.js"
+    "start": "webpack-dev-server --config webpack/dev.js --hot --open --watch",
+    "build": "webpack --config webpack/production.js",
+    "upload": "node upload.js"
   },
   "author": "huhu",
   "devDependencies": {
     "@commitlint/cli": "^7.1.2",
+    "ali-oss": "^6.0.1",
     "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -18,6 +20,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "co": "^4.6.0",
     "css-loader": "^0.28.11",
     "eslint": "^4.0",
     "eslint-config-airbnb": "^17.1.0",
@@ -31,11 +34,12 @@
     "style-loader": "^0.21.0",
     "webpack": "^4.8.3",
     "webpack-cli": "^3.1.1",
-    "webpack-dev-server": "^3.1.4"
+    "webpack-dev-server": "^3.1.4",
+    "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "@dwd/webpack-mainfest": "^0.0.6",
     "babel-eslint": "^9.0.0",
-    "clean-webpack-plugin": "^0.1.19",
     "ghooks": "^2.0.4",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^0.14.3",
@@ -43,8 +47,7 @@
     "react": "^16.3.2",
     "react-css-modules": "^4.7.7",
     "react-dom": "^16.3.2",
-    "react-router-dom": "^4.2.2",
-    "webpack-manifest-plugin": "^2.0.3"
+    "react-router-dom": "^4.2.2"
   },
   "config": {
     "publicPath": "https://assets.dianwoda.cn/",

@@ -1,19 +1,13 @@
 const path = require("path");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ManifestPlugin = require("webpack-manifest-plugin");
-const {
-  publicPath, filename, template, favicon,
-} = require("./package.json").config;
 
 module.exports = {
-  mode: "production",
-  entry: "./src/index.jsx",
+  entry: path.resolve(__dirname, "../src/index.jsx"),
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.[hash].js",
-    publicPath,
+    path: path.resolve(__dirname, "../dist"),
+    filename: "bundle.js",
+    publicPath: "dist/",
   },
+  devtool: "source-map",
   resolve: {
     extensions: [".js", ".jsx", ".js", ".json"],
   },
@@ -25,7 +19,7 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        include: path.resolve(__dirname, "./node_modules"),
+        include: path.resolve(__dirname, "../node_modules"),
         loader: "style-loader!css-loader!less-loader?javascriptEnabled=true",
       },
       {
@@ -39,7 +33,7 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        exclude: path.resolve(__dirname, "./node_modules"),
+        exclude: path.resolve(__dirname, "../node_modules"),
         use: [
           {
             loader: "style-loader", // creates style nodes from JS strings
@@ -60,18 +54,15 @@ module.exports = {
           },
           {
             loader: "postcss-loader",
+            options: {
+              // 如果没有options这个选项将会报错 No PostCSS Config found
+              plugins: () => [
+                require("autoprefixer")(), // CSS浏览器兼容
+              ],
+            },
           },
         ],
       },
     ],
   },
-  plugins: [
-    new CleanWebpackPlugin(["dist"]),
-    new ManifestPlugin(),
-    new HtmlWebpackPlugin({
-      filename,
-      template,
-      favicon,
-    }),
-  ],
 };

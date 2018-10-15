@@ -48,7 +48,6 @@ function intercept(request, response, next) {
                 next();
             }
             else {
-                console.log(121);
                 response.redirect("/auth/login");
             }
             return [2 /*return*/];
