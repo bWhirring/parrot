@@ -1,4 +1,5 @@
 const path = require("path");
+const autoprefixer = require("autoprefixer");
 
 module.exports = {
   entry: path.resolve(__dirname, "../src/index.jsx"),
@@ -42,14 +43,8 @@ module.exports = {
             loader: "css-loader", // translates CSS into CommonJS
             options: {
               modules: true,
-              importLoaders: 1,
+              importLoaders: 2,
               localIdentName: "[name]__[local]___[hash:base64:5]",
-            },
-          },
-          {
-            loader: "less-loader", // compiles Less to CSS
-            options: {
-              javascriptEnabled: true,
             },
           },
           {
@@ -57,8 +52,14 @@ module.exports = {
             options: {
               // 如果没有options这个选项将会报错 No PostCSS Config found
               plugins: () => [
-                require("autoprefixer")(), // CSS浏览器兼容
+                autoprefixer(), // CSS浏览器兼容
               ],
+            },
+          },
+          {
+            loader: "less-loader", // compiles Less to CSS
+            options: {
+              javascriptEnabled: true,
             },
           },
         ],

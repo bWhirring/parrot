@@ -1,30 +1,47 @@
 const path = require("path");
 const autoprefixer = require("autoprefixer");
-const mode = process.env.NODE_NEV || "development";
+
 module.exports = {
-  mode,
   entry: path.resolve(__dirname, "../src/index"),
   output: {
     path: path.resolve(__dirname, "../dist"),
     filename: "bundle.js",
-    publicPath: "dist"
+    publicPath: "dist/"
   },
   resolve: {
-    // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: [".ts", ".tsx", ".js", ".json"]
+    extensions: [".js", ".jsx", ".js", ".json"]
   },
-
   module: {
     rules: [
-      // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
-      { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
-
-      // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
+      {
+        test: /\.(js|jsx)/,
+        loader: "babel-loader"
+      },
       {
         test: /\.less$/,
         include: path.resolve(__dirname, "../node_modules"),
-        loader: "style-loader!css-loader!less-loader?javascriptEnabled=true"
+        use: [
+          { loader: "style-loader" },
+          { loader: "css-loader" },
+          {
+            loader: "less-loader",
+            options: {
+              javascriptEnabled: true
+            }
+          } // 在这里可以定义antd主题
+          /**
+           {loader: 'less-loader', // compiles Less to CSS
+             options: {
+               modifyVars: {
+                 'primary-color': '#1DA57A',
+                 'link-color': '#1DA57A',
+                 'border-radius-base': '2px',
+               },
+               javascriptEnabled: true,
+              }
+            }
+           */
+        ]
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
@@ -46,7 +63,7 @@ module.exports = {
             loader: "css-loader", // translates CSS into CommonJS
             options: {
               modules: true,
-              importLoaders: 2,
+              importLoaders: 1,
               localIdentName: "[name]__[local]___[hash:base64:5]"
             }
           },

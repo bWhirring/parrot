@@ -1,6 +1,7 @@
 import React from "react";
 import CSSModules from "react-css-modules";
 import { Route, Switch, HashRouter, Link } from "react-router-dom";
+import { Button } from 'antd'
 
 import { router } from "./routers";
 import style from "./App.less";
@@ -21,6 +22,7 @@ export default class App extends React.PureComponent {
               <Link to="/count">count</Link>
             </li>
           </ul>
+          <Button type="primary">12</Button>
           <Switch>
             {router.map((route, index) => (
               <Route

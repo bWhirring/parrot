@@ -36,11 +36,11 @@
     "style-loader": "^0.21.0",
     "webpack": "^4.8.3",
     "webpack-cli": "^3.1.1",
-    "webpack-dev-server": "^3.1.4",
-    "webpack-merge": "^4.1.4"
+    "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
     "@dwd/webpack-mainfest": "^0.0.6",
+    "autoprefixer": "^9.2.1",
     "eslint": "^4.0",
     "less": "^3.0.4",
     "react": "^16.3.2",
@@ -49,7 +49,8 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "webpack-merge": "^4.1.4"
   },
   "config": {
     "publicPath": "https://assets.dianwoda.cn/",
@@ -57,5 +58,12 @@
     "favicon": "public/favicon.ico",
     "filename": "index.html"
   },
+  "browserslist": [
+    "defaults",
+    "not ie < 11",
+    "last 2 versions",
+    "> 1%",
+    "last 3 iOS versions"
+  ],
   "license": "MIT"
 }
