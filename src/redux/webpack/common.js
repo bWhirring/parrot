@@ -6,16 +6,17 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "../dist"),
     filename: "bundle.js",
-    publicPath: "dist/",
+    publicPath: "dist/"
   },
   resolve: {
     extensions: [".js", ".jsx", ".js", ".json"],
+    modules: [path.resolve(__dirname, "node_modules")]
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)/,
-        loader: "babel-loader",
+        loader: "babel-loader"
       },
       {
         test: /\.less$/,
@@ -23,7 +24,7 @@ module.exports = {
         use: [
           { loader: "style-loader" },
           { loader: "css-loader" },
-          { loader: "less-loader" }, // 在这里可以定义antd主题
+          { loader: "less-loader" } // 在这里可以定义antd主题
           /**
            {loader: 'less-loader', // compiles Less to CSS
              options: {
@@ -36,49 +37,49 @@ module.exports = {
               }
             }
            */
-        ],
+        ]
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
           {
             loader: "file-loader",
-            options: {},
-          },
-        ],
+            options: {}
+          }
+        ]
       },
       {
         test: /\.less$/,
         exclude: path.resolve(__dirname, "../node_modules"),
         use: [
           {
-            loader: "style-loader", // creates style nodes from JS strings
+            loader: "style-loader" // creates style nodes from JS strings
           },
           {
             loader: "css-loader", // translates CSS into CommonJS
             options: {
               modules: true,
               importLoaders: 1,
-              localIdentName: "[name]__[local]___[hash:base64:5]",
-            },
+              localIdentName: "[name]__[local]___[hash:base64:5]"
+            }
           },
           {
             loader: "postcss-loader",
             options: {
               // 如果没有options这个选项将会报错 No PostCSS Config found
               plugins: () => [
-                autoprefixer(), // CSS浏览器兼容
-              ],
-            },
+                autoprefixer() // CSS浏览器兼容
+              ]
+            }
           },
           {
             loader: "less-loader", // compiles Less to CSS
             options: {
-              javascriptEnabled: true,
-            },
-          },
-        ],
-      },
-    ],
-  },
+              javascriptEnabled: true
+            }
+          }
+        ]
+      }
+    ]
+  }
 };

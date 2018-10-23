@@ -5,6 +5,7 @@
     "es2015", [
       "env",
       {
+        "modules": false,
         "targets": {
           "node": "current"
         }
@@ -14,6 +15,9 @@
   "plugins": [
     "transform-decorators-legacy",
     "transform-class-properties",
-    ["import", { "libraryName": "antd", "style": true }]
+    ["import", {
+      "libraryName": "antd",
+      "style": true
+    }]
   ]
 }
