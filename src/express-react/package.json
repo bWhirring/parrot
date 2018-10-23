@@ -1,28 +1,31 @@
 {
-  "name": "bug-finder",
+  "name": "express-react-demo",
   "version": "1.0.0",
-  "description": "bug-finder",
+  "description": "express-react-demo",
   "main": "index.js",
   "scripts": {
-    "start": "rm -rf dist/ && webpack-dev-server --config webpack/dev.js --hot --port=9999 --open --watch",
+    "start": "rm -rf dist/ && webpack-dev-server --config webpack/dev.js --hot --port=9999 --open",
     "build": "webpack --config webpack/production.js",
-    "tsc": "node_modules/.bin/tsc",
+    "tsc": "npx tsc",
     "server": "node src/dist/index.js"
   },
   "author": "huhu",
+  "repository": {
+    "type": "nodejs",
+    "url": "git@192.168.1.66:FE/parrot.git"
+  },
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-decorators": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
     "@dwd/webpack-mainfest": "^0.0.6",
     "ali-oss": "^6.0.1",
     "babel-cli": "^6.26.0",
-    "babel-loader": "^7.1.4",
+    "babel-loader": "^8.0.4",
     "babel-plugin-import": "^1.8.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
     "ci": "^1.0.0",
     "css-loader": "^0.28.11",
     "eslint": "^4.0",
@@ -36,10 +39,9 @@
     "postcss-loader": "^2.1.5",
     "react-hot-loader": "^4.1.3",
     "style-loader": "^0.21.0",
-    "webpack": "^4.8.3",
+    "webpack": "^4.20.2",
     "webpack-cli": "^3.1.1",
-    "webpack-dev-server": "^3.1.4",
-    "webpack-merge": "^4.1.4"
+    "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
     "@types/config": "^0.0.34",
@@ -47,6 +49,7 @@
     "antd": "^3.8.1",
     "autoprefixer": "^9.1.5",
     "axios": "^0.18.0",
+    "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",
     "babel-polyfill": "^6.26.0",
     "config": "^2.0.1",
@@ -67,6 +70,7 @@
     "redux-thunk": "^2.2.0",
     "reflect-metadata": "^0.1.12",
     "typescript": "^3.0.3",
+    "webpack-merge": "^4.1.4",
     "xml2js": "^0.4.19"
   },
   "config": {
