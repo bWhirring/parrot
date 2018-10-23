@@ -8,10 +8,10 @@ module.exports = {
     filename: "bundle.js",
     publicPath: "dist/",
   },
-  devtool: "source-map",
+  devtool: "eval-source-map",
   resolve: {
     extensions: [".js", ".jsx", ".js", ".json"],
-    modules: [path.resolve(__dirname, "node_modules")],
+    modules: [path.resolve(__dirname, "../node_modules")],
   },
   module: {
     rules: [

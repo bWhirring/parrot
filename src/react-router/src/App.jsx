@@ -18,6 +18,7 @@ export default class App extends React.PureComponent {
             <li>
               <Link to="/login">login</Link>
             </li>
+            <div styleName="test">css module</div>
           </ul>
           <Switch>
             {router.map((route, index) => (

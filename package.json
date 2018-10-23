@@ -1,6 +1,6 @@
 {
   "name": "@dwd/parrot",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "a tool for generation front project, includes react、typescript、express+inversify、express + react",
   "main": "bin/index.js",
   "bin": {
@@ -26,6 +26,5 @@
     "inquirer": "^5.2.0",
     "ncp": "^2.0.0",
     "ora": "^2.1.0"
-  },
-  "devDependencies": {}
+  }
 }

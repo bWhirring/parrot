@@ -4,7 +4,7 @@
   "description": "typescript react demo",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config webpack/dev.js --hot --open --watch",
+    "start": "webpack-dev-server --config webpack/dev.js --hot --open",
     "build": "webpack --config webpack/production.js",
     "upload": "node upload.js"
   },
@@ -12,7 +12,11 @@
     "typescript",
     "react"
   ],
-  "author": "whirring",
+  "author": "huhu",
+  "repository": {
+    "type": "nodejs",
+    "url": "git@192.168.1.66:FE/parrot.git"
+  },
   "license": "MIT",
   "dependencies": {
     "@types/react": "^16.4.1",

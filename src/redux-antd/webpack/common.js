@@ -9,8 +9,7 @@ module.exports = {
     publicPath: "dist/"
   },
   resolve: {
-    extensions: [".js", ".jsx", ".js", ".json"],
-    modules: [path.resolve(__dirname, "node_modules")]
+    extensions: [".js", ".jsx", ".js", ".json"]
   },
   module: {
     rules: [

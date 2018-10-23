@@ -8,6 +8,10 @@
   },
   "keywords": [],
   "author": "huhu",
+  "repository": {
+    "type": "nodejs",
+    "url": "git@192.168.1.66:FE/parrot.git"
+  },
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
