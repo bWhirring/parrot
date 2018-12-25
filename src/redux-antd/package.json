@@ -42,7 +42,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/polyfill": "^7.0.0",
     "@dwd/webpack-mainfest": "0.0.8",
-    "antd": "^3.8.1",
+    "antd": "3.11.6",
     "autoprefixer": "^9.2.1",
     "babel-core": "7.0.0-bridge.0",
     "less": "^3.0.4",
