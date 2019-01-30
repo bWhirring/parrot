@@ -15,8 +15,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
         while (_) try {
-            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [0, t.value];
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
                 case 0: case 1: t = op; break;
                 case 4: _.label++; return { value: op[1], done: false };
@@ -37,18 +37,34 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var ncp = require("ncp");
+var path = require("path");
 var ora = require("ora");
+var merge = require("lodash.merge");
 var fs = require("fs");
 var inquirer = require("inquirer");
 var util_1 = require("./util");
+var data = {
+    name: "",
+    version: "0.0.1",
+    author: "HUHU",
+    license: "MIT",
+    repository: {
+        type: "nodejs",
+        url: "git@192.168.1.66:FE/parrot.git"
+    }
+};
 /**
  * generation directory
  * @param dir directory
  * @param projectName project name
  */
 function dir(dir, projectName) {
-    var spinner = ora('init project');
+    var spinner = ora("init project");
     spinner.start();
+    var packageJson = require(dir + "/package.json");
+    packageJson.name = projectName;
+    data.name = projectName;
+    data = merge(data, packageJson);
     ncp.ncp(dir, projectName, function (err) {
         if (err) {
             console.log(err);
@@ -58,6 +74,7 @@ function dir(dir, projectName) {
         console.log();
         console.log("Project init finished".green);
         console.log("=====================".green);
+        fs.writeFileSync(path.resolve(process.cwd(), projectName + "/package.json"), new Buffer(JSON.stringify(data, null, 2)));
         console.log();
         console.log("To get started");
         console.log();
@@ -72,13 +89,13 @@ function viewTemplate(name) {
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
-                    viewsPath = process.cwd() + '/src/views';
-                    filename = name && name.split('.')[0];
+                    viewsPath = process.cwd() + "/src/views";
+                    filename = name && name.split(".")[0];
                     if (!!fs.existsSync(viewsPath)) return [3 /*break*/, 2];
                     return [4 /*yield*/, inquirer.prompt({
-                            name: 'views',
-                            type: 'confirm',
-                            message: 'Target directory hasn\'t exist, mkdir one',
+                            name: "views",
+                            type: "confirm",
+                            message: "Target directory hasn't exist, mkdir one"
                         })];
                 case 1:
                     views = (_b.sent()).views;
@@ -99,10 +116,10 @@ function viewTemplate(name) {
                     _b.label = 4;
                 case 4:
                     _a;
-                    filename = global['filename'] || name;
+                    filename = global["filename"] || name;
                     exist = fs.existsSync(viewsPath + "/" + filename + ".js");
                     if (exist) {
-                        console.log('the file has exist, please input another one'.red);
+                        console.log("the file has exist, please input another one".red);
                         return [2 /*return*/, false];
                     }
                     util_1.renderView(filename, viewsPath);

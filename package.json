@@ -1,6 +1,6 @@
 {
   "name": "@dwd/parrot",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "description": "a tool for generation front project, includes react、typescript、express+inversify、express + react",
   "main": "bin/index.js",
   "bin": {
@@ -24,7 +24,9 @@
     "colors": "^1.2.5",
     "commander": "^2.15.1",
     "inquirer": "^5.2.0",
+    "lodash.merge": "^4.6.1",
     "ncp": "^2.0.0",
-    "ora": "^2.1.0"
+    "ora": "^2.1.0",
+    "typescript": "^3.2.4"
   }
 }

@@ -1,19 +1,9 @@
 {
-  "name": "webpack-demo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack/dev.js --hot --open",
     "build": "webpack --config webpack/production.js",
     "upload": "node upload.js"
   },
-  "author": "huhu",
-  "repository": {
-    "type": "nodejs",
-    "url": "git@192.168.1.66:FE/parrot.git"
-  },
-  "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
