@@ -53,6 +53,10 @@ export async function mode() {
     type: "list",
     choices: [
       {
+        name: "mimo-template",
+        value: "zhuzhu"
+      },
+      {
         name: "react + react-router",
         value: "react"
       },

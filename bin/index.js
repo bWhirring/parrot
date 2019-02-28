@@ -40,7 +40,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var commander = require("commander");
 var fs = require("fs");
 var child_process_1 = require("child_process");
+var ora = require("ora");
 var path = require("path");
+var download = require("download-git-repo");
 var version = require("../package.json").version;
 var util_1 = require("./util");
 var generate_1 = require("./generate");
@@ -69,7 +71,7 @@ function help() {
 }
 help();
 var release = function () { return __awaiter(_this, void 0, void 0, function () {
-    var argv2, argv3, projectName, reactMode, currentPath, directory;
+    var argv2, argv3, projectName, reactMode, flag, spinner_1, currentPath, directory;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -101,10 +103,21 @@ var release = function () { return __awaiter(_this, void 0, void 0, function () 
             case 5:
                 reactMode = _a.sent();
                 projectName = projectName || global['projectName'];
-                fs.mkdirSync(projectName);
-                currentPath = path.resolve(__dirname, '..');
-                directory = currentPath + util_1.type(reactMode.flag);
-                generate_1.dir(directory, projectName);
+                flag = reactMode.flag;
+                if (flag === "zhuzhu") {
+                    spinner_1 = ora("download file, waiting...");
+                    spinner_1.start();
+                    download('direct:http://192.168.1.66/zhuxinxin/mimo-template.git', path.resolve(process.cwd(), projectName), { clone: true }, function (err) {
+                        spinner_1.stop();
+                        console.log(err ? 'Error' : 'Success');
+                    });
+                }
+                else {
+                    fs.mkdirSync(projectName);
+                    currentPath = path.resolve(__dirname, '..');
+                    directory = currentPath + util_1.type(flag);
+                    generate_1.dir(directory, projectName);
+                }
                 return [3 /*break*/, 7];
             case 6:
                 if (argv2 === 'view') {

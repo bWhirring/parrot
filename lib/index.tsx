@@ -3,7 +3,9 @@ import * as commander from "commander";
 import * as fs from 'fs'
 import { execSync } from "child_process";
 import * as colors from 'colors'
+import * as ora from "ora";
 import * as path from 'path'
+const download =  require("download-git-repo")
 const version = require("../package.json").version;
 import {
   setProjectName,
@@ -66,10 +68,21 @@ const release = async() => {
 
     const reactMode = await mode();
     projectName = projectName || global['projectName'];
-    fs.mkdirSync(projectName);
-    const currentPath = path.resolve(__dirname, '..')
-    const directory =  currentPath + type(reactMode.flag);
-    dir(directory, projectName)
+    const { flag } = reactMode;
+    if (flag === "zhuzhu") {
+      const spinner = ora("download file, waiting...")
+      spinner.start()
+      download('direct:http://192.168.1.66/zhuxinxin/mimo-template.git', path.resolve(process.cwd(), projectName), { clone: true}, function (err) {
+        spinner.stop()
+        console.log(err ? 'Error' : 'Success')
+      })
+    } else {
+      fs.mkdirSync(projectName);
+      const currentPath = path.resolve(__dirname, '..')
+      const directory =  currentPath + type(flag);
+      dir(directory, projectName)
+    }
+
   } else if (argv2 === 'view') {
     viewTemplate(argv3)
   }
