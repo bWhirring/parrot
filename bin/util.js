@@ -135,6 +135,10 @@ function mode() {
                                 value: "redux"
                             },
                             {
+                                name: "mobx",
+                                value: "mobx"
+                            },
+                            {
                                 name: "react + react-router + redux + antd",
                                 value: "antd"
                             },
@@ -173,6 +177,7 @@ function type(mode) {
         ts: "/src/ts",
         "ts-react": "/src/ts-react",
         express: "/src/express-demo",
+        mobx: "/src/mobx",
         antd: "/src/redux-antd",
         expressreact: "/src/express-react"
     }[mode];

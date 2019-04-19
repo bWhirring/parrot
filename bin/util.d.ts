@@ -2,12 +2,12 @@
 /**
  * if hasn't projectName ,set one
  */
-export declare function setProjectName(dir?: string): Promise<any>;
-export declare function setFileName(dir?: string): Promise<any>;
+export declare function setProjectName(dir?: string): {};
+export declare function setFileName(dir?: string): {};
 /**
  * select mode
  */
-export declare function mode(): Promise<any>;
+export declare function mode(): {};
 /**
  * file directory
  * @param mode
