@@ -1,16 +1,9 @@
 import "reflect-metadata";
 import { InversifyExpressServer } from "inversify-express-utils";
-import { Container } from "inversify";
 import * as bodyParser from "body-parser";
-import TYPES from "./constant/types";
 import "./controller/home";
 import "./controller/user";
-import { UserService } from "./service/user";
-
-let containter = new Container();
-containter.bind<UserService>(TYPES.UserService).to(UserService);
-let test = containter.resolve(UserService);
-console.log(test, 1111111);
+import containter from "./container";
 
 let server = new InversifyExpressServer(containter);
 
