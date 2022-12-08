@@ -3,7 +3,7 @@
     "start": "tsc"
   },
   "dependencies": {
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "inversify": "^4.13.0",
     "inversify-express-utils": "^6.1.0",
     "reflect-metadata": "^0.1.12",
